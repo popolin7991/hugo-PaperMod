@@ -25,6 +25,13 @@
       {{- partial "translation_list.html" . -}}
       {{- partial "edit_post.html" . -}}
       {{- partial "post_canonical.html" . -}}
+      {{ $date := .Date.Format "2006-01-02" }}　
+{{ $lastmod := .Lastmod.Format "2006-01-02" }}
+{{- if $lastmod }}
+<p style="color: gray; border-bottom: dashed 1px gray;width: fit-content;margin-bottom: 1rem;">
+✏️本文最後更新於 {{ $lastmod }}{{ with .GitInfo }}{{ end }}
+</p>
+{{- end }}
     </div>
     {{- end }}
   </header>
